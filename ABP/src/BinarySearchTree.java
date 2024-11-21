@@ -306,7 +306,7 @@ class BinarySearchTree {
      */
     public int diffMaxRoot() {
         // Implementação do método
-        return 0;
+        return 1;
     }
 
 
