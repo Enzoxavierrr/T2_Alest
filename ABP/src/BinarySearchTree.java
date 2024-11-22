@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
 /**
  * CLASSE BinarySearchTree
  * Trabalhando com árvore binária de pesquisa
@@ -277,6 +280,7 @@ class BinarySearchTree {
         }
     }
 
+
     /**
      * Método AverageExternalNodes()
      * Calcula a média dos valores de todos os nodos externos (folhas) na árvore.
@@ -284,8 +288,20 @@ class BinarySearchTree {
      * @return valor médio dos nodos externos. Retorna 0 se a árvore não tiver nodos externos.
      */
     public int AverageExternalNodes(Node current) {
-        // Implementação do método
-        return 0;
+        int[] result = sumAndCountExternalNodes(current);
+        if (result[1] == 0) return 0; // Evita divisão por zero
+        return result[0] / result[1];
+    }
+
+    private int[] sumAndCountExternalNodes(Node current) {
+        if (current == null) return new int[]{0, 0};
+        if (current.left == null && current.right == null)
+            return new int[]{current.element, 1};
+
+        int[] left = sumAndCountExternalNodes(current.left);
+        int[] right = sumAndCountExternalNodes(current.right);
+
+        return new int[]{left[0] + right[0], left[1] + right[1]};
     }
 
     /**
@@ -295,21 +311,34 @@ class BinarySearchTree {
      * @return nível do nodo com o maior valor na árvore. Retorna -1 se a árvore estiver vazia.
      */
     public int maxNodeLevel(Node current) {
-        // Implementação do método
-        return 0;
+        return findMaxNodeLevel(current, 0, Integer.MIN_VALUE, -1);
     }
 
+    private int findMaxNodeLevel(Node node, int level, int max, int maxLevel) {
+        if (node == null) return maxLevel;
+        if (node.element > max) {
+            max = node.element;
+            maxLevel = level;
+        }
+
+        maxLevel = findMaxNodeLevel(node.left, level + 1, max, maxLevel);
+        return findMaxNodeLevel(node.right, level + 1, max, maxLevel);
+    }
     /**
      * Método diffMaxRoot()
      * Calcula a diferença entre o maior valor presente na árvore e o valor do nodo raiz.
      * @return diferença (valor do maior nodo - valor do nodo raiz).
      */
     public int diffMaxRoot() {
-        // Implementação do método
-        return 1;
+        if (root == null) return 0;
+        int maxValue = findMaxValue(root);
+        return maxValue - root.element;
     }
 
-
+    private int findMaxValue(Node node) {
+        if (node.right == null) return node.element;
+        return findMaxValue(node.right);
+    }
 
     /**
      * Método sumBetween()
@@ -320,12 +349,19 @@ class BinarySearchTree {
      * @param end valor final do intervalo, excluído da soma.
      * @param current nodo atual da árvore (geralmente inicializado com a raiz).
      * @return soma dos valores dos nodos dentro do intervalo especificado.
-     *         retorna 0 se não houver nodos no intervalo ou se a árvore estiver vazia.
+     *Retorna 0 se não houver nodos no intervalo ou se a árvore estiver vazia.
      */
     public int sumBetween(int start, int end, Node current) {
-        // Implementação do método
+        if (current == null) return 0;
 
-        return 0;
+        int sum = 0;
+        if (current.element >= start && current.element < end)
+            sum += current.element;
+
+        sum += sumBetween(start, end, current.left);
+        sum += sumBetween(start, end, current.right);
+
+        return sum;
     }
 
     /**
@@ -333,7 +369,21 @@ class BinarySearchTree {
      * Realiza o caminhamento em largura (level-order traversal) e imprime os valores da árvore.
      */
     public void breadthFirstOrder() {
-        // Implementação do método
-    }
+        if (root == null) {
+            System.out.println("Árvore vazia!");
+            return;
+        }
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
 
+        while (!queue.isEmpty()) {
+            Node current = queue.poll();
+            System.out.print(current.element + " ");
+
+            if (current.left != null)
+                queue.add(current.left);
+            if (current.right != null)
+                queue.add(current.right);
+        }
+    }
 }
