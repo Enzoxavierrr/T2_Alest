@@ -244,30 +244,16 @@ class BinarySearchTree {
         postOrder(root);
         System.out.print("\n Exibindo em Pré-ordem (pre-order): ");
         preOrder(root);
-        /*
-        * ADICIONAE A CHAMADA DE CAMINHAMENTO POR LARGURA (breadthFirstOrder) AQUI
-        *
-        **/
+
+        breadthFirstOrder();
     }
 
     public void treeInfo() {
         System.out.println("Altura da arvore: " + height(root));
         System.out.println("Quantidade de Nós: " + countNodes(root));
-
-        /*
-        * ADICIONE A CHAMADA DO MÉTODO DE MÉDIA DOS NÓS EXTERNOS (AverageExternalNodes) AQUI
-        *
-        **/
-
-        /*
-        * ADICIONE A CHAMADA DO MÉTODO DE NÍVEL DO MAIOR NODO (maxNodeLevel) AQUI
-        *
-        **/
-
-        /*
-         * ADICIONE A CHAMADA DO MÉTODO DE DIFERENÇA ENTRE MÁXIMO VALOR E A RAIZ (diffMaxRoot) AQUI
-         *
-         **/
+        System.out.println("Média dos nodos externos: " + AverageExternalNodes(getRoot()));
+        System.out.println("Nível do maior nodo: " + maxNodeLevel(getRoot()));
+        System.out.println("Diferença entre maior valor e raiz: " + diffMaxRoot());
 
     }
 

@@ -56,10 +56,11 @@ public class Main {
                     tree.orders();
                 }
                 case 7 -> {
-                    /*
-                     * ADICIONE A CHAMADA DO MÉTODO DE SOMA ENTRE NODOS (sumBetween) AQUI
-                     *
-                     **/
+                    System.out.println("Informe o valor inicial do intervalo:");
+                    int valorInicial = scan.nextInt();
+                    System.out.println("Informe o valor final do intervalo:");
+                    int valorFinal = scan.nextInt();
+                    System.out.println("Soma dos valores no intervalo: " + tree.sumBetween(valorInicial, valorFinal, tree.getRoot()));
                 }
                 case 8 -> {
                     tree.clearTree();
