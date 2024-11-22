@@ -275,14 +275,22 @@ class BinarySearchTree {
      */
     public int AverageExternalNodes(Node current) {
         int[] result = sumAndCountExternalNodes(current);
-        if (result[1] == 0) return 0; // Evita divisão por zero
+
+        if (result[1] == 0) {
+            return 0; // Evita divisão por zero}
+        }
         return result[0] / result[1];
     }
 
     private int[] sumAndCountExternalNodes(Node current) {
-        if (current == null) return new int[]{0, 0};
-        if (current.left == null && current.right == null)
+        if (current == null) {
+            return new int[]{0, 0};
+        }
+
+        if (current.left == null && current.right == null) {
+
             return new int[]{current.element, 1};
+        }
 
         int[] left = sumAndCountExternalNodes(current.left);
         int[] right = sumAndCountExternalNodes(current.right);
@@ -297,17 +305,22 @@ class BinarySearchTree {
      * @return nível do nodo com o maior valor na árvore. Retorna -1 se a árvore estiver vazia.
      */
     public int maxNodeLevel(Node current) {
+        if (current == null) {
+            return -1;
+        }
         return findMaxNodeLevel(current, 0, Integer.MIN_VALUE, -1);
     }
 
     private int findMaxNodeLevel(Node node, int level, int max, int maxLevel) {
-        if (node == null) return maxLevel;
+        if (node == null) {
+            return maxLevel;
+        }
         if (node.element > max) {
             max = node.element;
             maxLevel = level;
         }
-
         maxLevel = findMaxNodeLevel(node.left, level + 1, max, maxLevel);
+
         return findMaxNodeLevel(node.right, level + 1, max, maxLevel);
     }
     /**
@@ -316,13 +329,18 @@ class BinarySearchTree {
      * @return diferença (valor do maior nodo - valor do nodo raiz).
      */
     public int diffMaxRoot() {
-        if (root == null) return 0;
+        if (root == null)  {
+            return 0;
+        }
         int maxValue = findMaxValue(root);
+
         return maxValue - root.element;
     }
 
     private int findMaxValue(Node node) {
-        if (node.right == null) return node.element;
+        if (node.right == null) {
+            return node.element;
+        }
         return findMaxValue(node.right);
     }
 
@@ -338,14 +356,16 @@ class BinarySearchTree {
      *Retorna 0 se não houver nodos no intervalo ou se a árvore estiver vazia.
      */
     public int sumBetween(int start, int end, Node current) {
-        if (current == null) return 0;
-
+        if (current == null) {
+            return 0;
+        }
         int sum = 0;
-        if (current.element >= start && current.element < end)
-            sum += current.element;
 
-        sum += sumBetween(start, end, current.left);
-        sum += sumBetween(start, end, current.right);
+        if (current.element >= start && current.element < end) {
+            sum += current.element;
+            sum += sumBetween(start, end, current.left);
+            sum += sumBetween(start, end, current.right);
+        }
 
         return sum;
     }

@@ -57,10 +57,10 @@ public class Main {
                 }
                 case 7 -> {
                     System.out.println("Informe o valor inicial do intervalo:");
-                    int valorInicial = scan.nextInt();
+                    int start = scan.nextInt();
                     System.out.println("Informe o valor final do intervalo:");
-                    int valorFinal = scan.nextInt();
-                    System.out.println("Soma dos valores no intervalo: " + tree.sumBetween(valorInicial, valorFinal, tree.getRoot()));
+                    int end = scan.nextInt();
+                    System.out.println("Soma dos valores no intervalo: " + tree.sumBetween(start, end, tree.getRoot()));
                 }
                 case 8 -> {
                     tree.clearTree();
