@@ -6,18 +6,20 @@ public class RedBlackTree {
         RedBlackNode rightChild = node.right;
         node.right = rightChild.left;
 
-        if (rightChild.left != null)
+        if (rightChild.left != null) {
             rightChild.left.parent = node;
-
+        }
         rightChild.parent = node.parent;
 
-        if (node.parent == null)
+        if (node.parent == null) {
             root = rightChild;
-        else if (node == node.parent.left)
+        }
+        else if (node == node.parent.left) {
             node.parent.left = rightChild;
-        else
+        }
+        else {
             node.parent.right = rightChild;
-
+        }
         rightChild.left = node;
         node.parent = rightChild;
     }
