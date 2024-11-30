@@ -5,7 +5,7 @@ public class RedBlackNode {
 
     public RedBlackNode(int data) {
         this.data = data;
-        this.isRed = true; // novo nó sempre sera vermelho
+        this.isRed = true; // novo nó sempre será vermelho
         this.left = this.right = this.parent = null;
     }
 }
