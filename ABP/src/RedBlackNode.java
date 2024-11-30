@@ -1,11 +1,11 @@
 public class RedBlackNode {
     int data;
     RedBlackNode left, right, parent;
-    boolean isRed; // true para vermelho, false para preto
+    boolean isRed; // verdadeiro para vermelho, falso para preto
 
     public RedBlackNode(int data) {
         this.data = data;
-        this.isRed = true; // novo nó sempre é vermelho
+        this.isRed = true; // novo nó sempre sera vermelho
         this.left = this.right = this.parent = null;
     }
 }

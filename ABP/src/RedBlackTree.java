@@ -2,7 +2,7 @@ public class RedBlackTree {
     private RedBlackNode root;
 
     // Rotação à esquerda
-    private void rotateLeft(RedBlackNode node) {
+    private void rotacaoParaEsquerda(RedBlackNode node) {
         RedBlackNode rightChild = node.right;
         node.right = rightChild.left;
 
@@ -25,10 +25,10 @@ public class RedBlackTree {
     }
 
     // Inserção
-    public void insert(int data) {
+    public void inserir(int data) {
         RedBlackNode node = new RedBlackNode(data);
 
-        // Inserção BST normal
+        // Inserção normal
         RedBlackNode parent = null;
         RedBlackNode current = root;
 
@@ -60,9 +60,6 @@ public class RedBlackTree {
         while (node != root && node.isRed && node.parent.isRed) {
             parent = node.parent;
             grandParent = parent.parent;
-
-            // Casos de recoloração e rotação
-            // ... implementação dos casos de correção
         }
 
         root.isRed = false; // raiz sempre preta
