@@ -64,4 +64,5 @@ public class RedBlackTree {
 
         root.isRed = false; // raiz sempre preta
     }
+
 }
