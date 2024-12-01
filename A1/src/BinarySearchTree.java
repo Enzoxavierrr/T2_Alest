@@ -15,39 +15,36 @@ class BinarySearchTree {
     }
 
     public void add(Integer v) {
-
         Node prev, current;
 
-        // cria um novo nodo
         Node node = new Node();
 
-        // atribui o valor recebido ao item de dados do nodo
         node.element = v;
         node.right = null;
         node.left = null;
 
-        // se a raiz está nula, a árvore está vazia
-        if (root == null) {
+
+        if (root == null) { // se a raiz está nula, a árvore está vazia
             root = node;
         } else {
             current = root;
-            // percorre a árvore
+
             while (true) {
                 prev = current;
-                // ir para esquerda
+
                 if (v <= current.element) {
                     current = current.left;
-                    if (current == null) {
-                        // insere na subárvore da esquerda
-                        prev.left = node;
-                        return;
+
+                            if (current == null) {
+                            prev.left = node;
+                            return;
                     }
                 }
-                // ir para direita
+
                 else {
                     current = current.right;
                     if (current == null) {
-                        // insere na subárvore da direita
+
                         prev.right = node;
                         return;
                     }
@@ -56,12 +53,10 @@ class BinarySearchTree {
         }
     }
 
+
     public Node contains(Integer v) {
-        // se arvore vazia
         if (root == null)
             return null;
-
-        // começa a procurar desde raiz
         Node current = root;
         // enquanto nao encontrou
         while (current.element != v) {
@@ -70,12 +65,10 @@ class BinarySearchTree {
             else
                 current = current.right; // caminha para direita
 
-            // encontrou uma folha -> sai
             if (current == null)
                 return null;
         }
 
-        // terminou o laço while e chegou aqui é pq encontrou item
         return current;
     }
 
@@ -323,6 +316,7 @@ class BinarySearchTree {
 
         return findMaxNodeLevel(node.right, level + 1, max, maxLevel);
     }
+
     /**
      * Método diffMaxRoot()
      * Calcula a diferença entre o maior valor presente na árvore e o valor do nodo raiz.
