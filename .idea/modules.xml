@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ArvoreRubro/ArvoreRubro.iml" filepath="$PROJECT_DIR$/ArvoreRubro/ArvoreRubro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ArvoreAVL/ArvoreAVL.iml" filepath="$PROJECT_DIR$/ArvoreAVL/ArvoreAVL.iml" />
       <module fileurl="file://$PROJECT_DIR$/T2_Alest.iml" filepath="$PROJECT_DIR$/T2_Alest.iml" />
     </modules>
   </component>

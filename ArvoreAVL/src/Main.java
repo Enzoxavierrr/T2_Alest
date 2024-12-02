@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main2 {
+public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         AVLTree tree = new AVLTree();
@@ -20,6 +20,7 @@ public class Main2 {
             System.out.println("9 | Retornar o pai de um elemento na árvore");
             System.out.println("10 | Verificar quantos elementos tem na árvore");
             System.out.println("11 | Remover um elemento da árvore");
+            System.out.println("12 | Apresentar a visualização hierárquica da árvore");
             System.out.println("0 | Sair do programa");
             System.out.println("---------------------------------------");
             System.out.print("Digite a opção desejada: ");
@@ -83,6 +84,10 @@ public class Main2 {
                     tree.remove(value);
                     System.out.println("Número removido da árvore.");
                 }
+                case 12 -> {
+                    System.out.println("Visualização hierárquica da árvore:\n" + tree.printTree());
+                }
+
                 case 0 -> {
                     System.out.println("Programa encerrado.");
                     scan.close();

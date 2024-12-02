@@ -9,6 +9,10 @@ public class AVLTree {
     public AVLTree() {
         this.root = null;
     }
+    public String printTree() {
+        TreeFormatter formatter = new TreeFormatter();
+        return root == null ? "Árvore vazia" : formatter.topDown(root);
+    }
 
     public String parent(int value) {
         Integer parent = getParent(value);
@@ -60,7 +64,7 @@ public class AVLTree {
     }
 
 
-    private class AVLNode {
+    class AVLNode {
         int data;
         AVLNode left, right;
         int height;
