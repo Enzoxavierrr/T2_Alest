@@ -6,6 +6,7 @@ public class Main {
         AVLTree tree = new AVLTree();
         int op;
 
+
         while (true) {
             System.out.println("\nÁRVORE AVL");
             System.out.println("---------------------------------------");

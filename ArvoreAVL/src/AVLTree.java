@@ -22,6 +22,7 @@ public class AVLTree {
         return root == null ? "Árvore vazia" : formatter.topDown(root);
     }
 
+
     // Mostrar informações da árvore
     public String parent(int value) {
         Integer parent = getParent(value);
@@ -158,6 +159,7 @@ public class AVLTree {
         return root == null;
     }
 
+
     /** Retornar os elementos da árvore em uma lista usando caminhamento central */
     public List<Integer> inOrder() {
         List<Integer> result = new ArrayList<>();
@@ -165,7 +167,7 @@ public class AVLTree {
         return result;
     }
 
-    // Caminhamento central
+    // Auxiliar do Caminhamento central
     private void inOrderTraversal(AVLNode node, List<Integer> result) {
         if (node != null) {
             inOrderTraversal(node.left, result);
