@@ -10,7 +10,7 @@ public class Main {
             System.out.println("\nÁRVORE AVL");
             System.out.println("---------------------------------------");
             System.out.println("1 | Adicionar números (10 a 90 em ordem crescente)");
-            System.out.println("2 | Apresentar a visualização da árvore (InOrder)");
+            System.out.println("2 | Apresentar a visualização hierárquica da árvore");
             System.out.println("3 | Apresentar a altura da árvore");
             System.out.println("4 | Limpar o conteúdo da árvore");
             System.out.println("5 | Adicionar um numero inteiro na arvore");
@@ -20,7 +20,6 @@ public class Main {
             System.out.println("9 | Retornar o pai de um elemento na árvore");
             System.out.println("10 | Verificar quantos elementos tem na árvore");
             System.out.println("11 | Remover um elemento da árvore");
-            System.out.println("12 | Apresentar a visualização hierárquica da árvore");
             System.out.println("0 | Sair do programa");
             System.out.println("---------------------------------------");
             System.out.print("Digite a opção desejada: ");
@@ -36,7 +35,7 @@ public class Main {
                     System.out.println("Números adicionados na árvore em ordem crescente.");
                 }
                 case 2 -> {
-                    System.out.println("Visualização da árvore (InOrder): " + tree.inOrder());
+                    System.out.println("Visualização hierárquica da árvore:\n" + tree.printTree());
                 }
                 case 3 -> {
                     System.out.println("Altura da árvore: " + tree.height());
@@ -84,16 +83,12 @@ public class Main {
                     tree.remove(value);
                     System.out.println("Número removido da árvore.");
                 }
-                case 12 -> {
-                    System.out.println("Visualização hierárquica da árvore:\n" + tree.printTree());
-                }
 
                 case 0 -> {
                     System.out.println("Programa encerrado.");
                     scan.close();
                     System.exit(0);
                 }
-
             }
         }
     }

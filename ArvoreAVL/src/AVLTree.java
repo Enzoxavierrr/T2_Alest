@@ -30,7 +30,6 @@ public class AVLTree {
         }
 
 
-
         // Navegação pela árvore para encontrar o nó
         if (value < node.data) {
             node.left = delete(node.left, value);
@@ -54,6 +53,7 @@ public class AVLTree {
         // Rebalancear a árvore
         return balance(node);
     }
+
 
     // Encontrar o menor valor no lado direito
     private AVLNode findMin(AVLNode node) {
