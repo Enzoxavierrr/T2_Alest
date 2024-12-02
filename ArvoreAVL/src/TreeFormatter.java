@@ -2,6 +2,7 @@ import java.util.*;
 
 class TreeFormatter {
 
+    AVLNode AVLNode = new AVLNode(0);
     int padding = 2;
 
     private int indent(List<String> lines, int margin) {
@@ -29,7 +30,7 @@ class TreeFormatter {
         return left;
     }
 
-    private List<String> buildLines(AVLTree.AVLNode node) {
+    private List<String> buildLines(AVLNode node) {
         if (node == null) return new ArrayList<>();
         List<String> lines = merge(buildLines(node.left), buildLines(node.right));
         int half = String.valueOf(node.data).length() / 2;
@@ -54,9 +55,8 @@ class TreeFormatter {
         return lines;
     }
 
-    public String topDown(AVLTree.AVLNode root) {
+    public String topDown(AVLNode root) {
         List<String> lines = buildLines(root);
         return String.join("\n", lines.subList(1, lines.size()));
     }
 }
-
