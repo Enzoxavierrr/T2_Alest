@@ -1,13 +1,64 @@
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 public class AVLTree {
     private AVLNode root;
 
+    public AVLTree() {
+        this.root = null;
+    }
+
     public String parent(int value) {
         Integer parent = getParent(value);
+
         return parent != null ? parent.toString() : "Nó não encontrado";
     }
+
+    public void remove(int value) {
+        root = delete(root, value);
+    }
+
+    private AVLNode delete(AVLNode node, int value) {
+        if (node == null) {
+            return null; // Nó não encontrado
+        }
+
+
+
+        // Navegação pela árvore para encontrar o nó
+        if (value < node.data) {
+            node.left = delete(node.left, value);
+        } else if (value > node.data) {
+            node.right = delete(node.right, value);
+        } else {
+            // Caso 1: Nó folha ou com um filho
+            if (node.left == null || node.right == null) {
+                return (node.left != null) ? node.left : node.right;
+            }
+
+            // Caso 2: Nó com dois filhos
+            AVLNode minNode = findMin(node.right);
+            node.data = minNode.data;
+            node.right = delete(node.right, minNode.data);
+        }
+
+        // Atualizar altura
+        node.height = 1 + Math.max(getHeight(node.left), getHeight(node.right));
+
+        // Rebalancear a árvore
+        return balance(node);
+    }
+
+    // Encontrar o menor valor no lado direito
+    private AVLNode findMin(AVLNode node) {
+        while (node.left != null) {
+            node = node.left;
+        }
+        return node;
+    }
+
 
     private class AVLNode {
         int data;

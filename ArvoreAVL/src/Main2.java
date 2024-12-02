@@ -19,6 +19,7 @@ public class Main2 {
             System.out.println("8 | Verificar se um elemento está armazenado na árvore ou não");
             System.out.println("9 | Retornar o pai de um elemento na árvore");
             System.out.println("10 | Verificar quantos elementos tem na árvore");
+            System.out.println("11 | Remover um elemento da árvore");
             System.out.println("0 | Sair do programa");
             System.out.println("---------------------------------------");
             System.out.print("Digite a opção desejada: ");
@@ -75,6 +76,17 @@ public class Main2 {
                     } else {
                         System.out.println("Quantos elementos tem na árvore? " + tree.size());
                     }
+                }
+                case 11 -> {
+                    System.out.println("Digite o número inteiro que deseja remover da árvore: ");
+                    int value = scan.nextInt();
+                    tree.remove(value);
+                    System.out.println("Número removido da árvore.");
+                }
+                case 0 -> {
+                    System.out.println("Programa encerrado.");
+                    scan.close();
+                    System.exit(0);
                 }
 
             }

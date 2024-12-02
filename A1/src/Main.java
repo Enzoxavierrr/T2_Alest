@@ -65,6 +65,9 @@ public class Main {
                 case 8 -> {
                     tree.clearTree();
                 }
+                case 0 -> {
+                    System.out.println("Programa encerrado!");
+                }
 
             }
         } while (op != 0);
